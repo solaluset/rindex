@@ -1,0 +1,37 @@
+[build-system]
+requires = [
+    "setuptools==69.0.2",
+    "wheel==0.42.0",
+    "Cython==3.0.6",
+]
+
+[project]
+name = "rindex"
+version = "1.0.0"
+description = "rindex() function for sequences"
+requires-python = ">=3.8"
+authors = [{name = "Krutyi 4el"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[tool.setuptools]
+packages = ["rindex"]
+zip-safe = false
+
+[tool.setuptools.package-data]
+rindex = ["*.pyx", "py.typed"]
+
+[tool.cibuildwheel]
+skip = "pp*"
+test-command = "pytest {project}/tests"
+test-requires = "pytest"
+test-skip = "*-{win,macosx}_arm64"
+
+[tool.cibuildwheel.linux]
+archs = ["auto", "aarch64"]
+
+[tool.cibuildwheel.macos]
+archs = ["auto", "arm64"]
+
+[tool.cibuildwheel.windows]
+archs = ["auto", "ARM64"]

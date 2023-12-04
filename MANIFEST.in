@@ -1,0 +1,2 @@
+exclude rindex/*.c
+exclude tests/*
