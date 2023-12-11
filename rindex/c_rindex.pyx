@@ -23,7 +23,8 @@ def rindex(
 
     cdef Py_ssize_t i
     for i in range(stop - 1, start - 1, -1):
-        if seq[i] == value:
+        elem = seq[i]
+        if elem is value or elem == value:
             return i
 
     raise ValueError("sequence.index(x): x not in sequence")
