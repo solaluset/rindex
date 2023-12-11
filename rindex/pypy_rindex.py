@@ -18,7 +18,8 @@ def rindex(seq, value, start=0, stop=maxsize, /):
 
     i = stop - 1
     while i >= start:
-        if seq[i] == value:
+        elem = seq[i]
+        if elem is value or elem == value:
             return i
         i -= 1
 

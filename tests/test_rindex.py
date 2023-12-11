@@ -29,6 +29,11 @@ class BadInt(int):
         raise RuntimeError("go away")
 
 
+class BizarreObject:
+    def __eq__(self, _):
+        return False
+
+
 @all_functions
 def test_basic(func, li):
     li_copy = li.copy()
@@ -83,3 +88,11 @@ def test_exceptions():
             f([], 0)
         exceptions.add(ctx.value.args)
     assert len(exceptions) == 1
+
+
+@all_functions
+def test_same_object(func, li):
+    b = BizarreObject()
+    # this must work with rindex if it works in the built-in index
+    [b].index(b)
+    func([b], b)
