@@ -14,6 +14,9 @@ authors = [{name = "Krutyi 4el"}]
 readme = "README.md"
 license = {file = "LICENSE"}
 
+[project.urls]
+Repository = "https://github.com/Krutyi-4el/rindex"
+
 [tool.setuptools]
 packages = ["rindex"]
 zip-safe = false
