@@ -8,6 +8,19 @@ This package provides `rindex()` function that returns last index of value in se
 pip install rindex
 ```
 
+## Examples
+
+```python
+from rindex import rindex
+
+
+numbers = [5, 1, 3, 8, 10, 5, 8, 1, 8, 3]
+
+print(rindex(numbers, 1))  # 7
+
+print(rindex(numbers, 8, 4, 8))  # 6
+```
+
 ## Goals
 
 - Support all features of built-in `.index()`
