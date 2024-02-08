@@ -10,12 +10,12 @@ name = "rindex"
 version = "1.1.0"
 description = "rindex() function for sequences"
 requires-python = ">=3.8"
-authors = [{name = "Krutyi 4el"}]
+authors = [{name = "Sóla Lusøt"}]
 readme = "README.md"
 license = {file = "LICENSE"}
 
 [project.urls]
-Repository = "https://github.com/Krutyi-4el/rindex"
+Repository = "https://github.com/solaluset/rindex"
 
 [tool.setuptools]
 packages = ["rindex"]
