@@ -28,7 +28,6 @@ rindex = ["*.pyx", "py.typed"]
 rindex = ["*.c"]
 
 [tool.cibuildwheel]
-skip = "pp*"
 test-command = "pytest {project}/tests"
 test-requires = "pytest"
 test-skip = "*-{win,macosx}_arm64"
