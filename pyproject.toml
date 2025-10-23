@@ -30,7 +30,6 @@ rindex = ["*.c"]
 [tool.cibuildwheel]
 test-command = "pytest {project}/tests"
 test-requires = "pytest"
-test-skip = "*-win_arm64"
 
 [tool.cibuildwheel.linux]
 archs = ["x86_64", "aarch64"]
