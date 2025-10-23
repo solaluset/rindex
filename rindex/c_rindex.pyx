@@ -1,9 +1,12 @@
-from cython import Py_ssize_t
+# cython: freethreading_compatible = True
+
+from cython import Py_ssize_t, critical_section
 
 cdef extern from "Python.h":
     Py_ssize_t PY_SSIZE_T_MAX
 
 
+@critical_section
 def rindex(
     seq, value, start: Py_ssize_t = 0, stop: Py_ssize_t = PY_SSIZE_T_MAX, /
 ) -> Py_ssize_t:
