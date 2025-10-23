@@ -31,10 +31,10 @@ test-requires = "pytest"
 test-skip = "*-{win,macosx}_arm64"
 
 [tool.cibuildwheel.linux]
-archs = ["auto", "aarch64", "ppc64le", "s390x"]
+archs = ["x86_64", "aarch64"]
 
 [tool.cibuildwheel.macos]
-archs = ["auto", "arm64"]
+archs = ["x86_64", "arm64"]
 
 [tool.cibuildwheel.windows]
-archs = ["auto", "ARM64"]
+archs = ["AMD64", "ARM64"]
