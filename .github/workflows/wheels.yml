@@ -17,8 +17,10 @@ jobs:
     strategy:
       matrix:
         os:
-          - ubuntu-22.04
-          - windows-2022
+          - ubuntu-latest
+          - ubuntu-24.04-arm
+          - windows-latest
+          - windows-11-arm
           - macos-latest
 
     steps:
@@ -32,6 +34,9 @@ jobs:
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v3.2.1
+        env:
+          CIBW_ARCHS_LINUX: auto
+          CIBW_ARCHS_WINDOWS: ${{ runner.arch == 'X64' && 'AMD64' || 'ARM64' }}
 
       - uses: actions/upload-artifact@v4
         with:
