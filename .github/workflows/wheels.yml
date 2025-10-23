@@ -58,9 +58,9 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - "pypy-3.8"
           - "pypy-3.9"
           - "pypy-3.10"
+          - "pypy-3.11"
 
     steps:
       - uses: actions/checkout@v4
