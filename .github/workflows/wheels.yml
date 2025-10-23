@@ -19,7 +19,7 @@ jobs:
         os:
           - ubuntu-22.04
           - windows-2022
-          - macos-11
+          - macos-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -33,8 +33,9 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.16.5
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
+          name: dist-${{ matrix.os }}
           path: ./wheelhouse/*.whl
 
   build_sdist:
@@ -46,8 +47,9 @@ jobs:
       - name: Build sdist
         run: pipx run build --sdist
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
+          name: dist-src
           path: dist/*.tar.gz
 
   test_pypy:
@@ -81,9 +83,10 @@ jobs:
       id-token: write
     if: github.event_name == 'release' && github.event.action == 'published'
     steps:
-      - uses: actions/download-artifact@v4.1.7
+      - uses: actions/download-artifact@v5.0.0
         with:
-          name: artifact
+          pattern: dist-*
           path: dist
+          merge-multiple: true
 
       - uses: pypa/gh-action-pypi-publish@release/v1
