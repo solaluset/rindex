@@ -24,6 +24,9 @@ zip-safe = false
 [tool.setuptools.package-data]
 rindex = ["*.pyx", "py.typed"]
 
+[tool.setuptools.exclude-package-data]
+rindex = ["*.c"]
+
 [tool.cibuildwheel]
 skip = "pp*"
 test-command = "pytest {project}/tests"
