@@ -57,15 +57,21 @@ jobs:
           name: dist-src
           path: dist/*.tar.gz
 
+  pypy_matrix:
+    uses: solaluset/python-version-matrix/.github/workflows/generate.yml@v1.0.1
+    with:
+      runners: '[
+        "ubuntu-latest"
+      ]'
+      min-version: "3.9"
+      implementations: '["PyPy"]'
+
   test_pypy:
     name: Test package on PyPy
-    runs-on: ubuntu-latest
+    needs: [pypy_matrix]
+    runs-on: ${{ matrix.runner }}
     strategy:
-      matrix:
-        python-version:
-          - "pypy-3.9"
-          - "pypy-3.10"
-          - "pypy-3.11"
+      matrix: ${{ fromJson(needs.pypy_matrix.outputs.matrix) }}
 
     steps:
       - uses: actions/checkout@v7
