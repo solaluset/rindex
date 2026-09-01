@@ -9,7 +9,7 @@ requires = [
 name = "rindex"
 version = "1.2.1"
 description = "rindex() function for sequences"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 authors = [{name = "Sóla Łuset"}]
 readme = "README.md"
 license = "MIT"
