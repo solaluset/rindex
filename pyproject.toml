@@ -7,7 +7,7 @@ requires = [
 
 [project]
 name = "rindex"
-version = "1.2.1"
+version = "1.2.2"
 description = "rindex() function for sequences"
 requires-python = ">=3.10"
 authors = [{name = "Sóla Łuset"}]
